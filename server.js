@@ -1,7 +1,7 @@
 //require npm packages: express, mongoose, and morgan
 const express = require("express");
 const mongoose = require("mongoose");
-const logger = require("morgan");
+const morgan = require("morgan");
 
 // Set up Express app and create port
 const app = express();
@@ -26,5 +26,5 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/budget", {
 
 // listen on port
 app.listen(PORT, function(){
-    console.log(`App listening on PORT: ${PORT}`);
+    console.log(`App listening on PORT ${PORT}`);
 });
