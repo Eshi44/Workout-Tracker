@@ -17,10 +17,10 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // db mongo - mongoose connection
-mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/workout",
-  { useNewUrlParser: true }
-);
+mongoose.connect(process.env.MONGODB_URI || "mongodb://heroku_j975k91k:ut1fuaspr58hij0jq1q49ga288@ds229118.mlab.com:29118/heroku_j975k91k", {
+  useNewUrlParser: true,
+  useFindAndModify: false
+});
 
 // require routes
 var htmlRoutes = require("./routes/htmlRoutes.js");
