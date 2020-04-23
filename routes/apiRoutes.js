@@ -40,3 +40,4 @@ router.get("/api/workouts/range", (req, res) => {
 
 
 //export models
+module.exports = router;
