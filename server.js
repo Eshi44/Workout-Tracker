@@ -7,9 +7,6 @@ const morgan = require("morgan");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-//require models
-const Workout = require("./models/index");
-
 //morgan
 app.use(morgan("dev"));
 
