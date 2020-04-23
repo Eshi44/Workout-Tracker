@@ -7,6 +7,9 @@ const morgan = require("morgan");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+//require models
+const Workout = require("./models/index");
+
 //morgan
 app.use(morgan("dev"));
 
@@ -17,14 +20,15 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // db mongo - mongoose connection
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/budget", {
-  useNewUrlParser: true,
-  useFindAndModify: false
-});
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost/workout",
+  { useNewUrlParser: true }
+);
 
 // require routes
-app.use(require("./routes/apiRoutes.js"));
-app.use(require("./routes/htmlRoutes.js"));
+var htmlRoutes = require("./routes/htmlRoutes.js");
+app.use(htmlRoutes);
+
 
 // listen on port
 app.listen(PORT, function(){
