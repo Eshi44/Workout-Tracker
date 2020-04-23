@@ -2,21 +2,32 @@
 const router = require("express").Router();
 const Workout = require("../models/workout.js");
 
-///api/workouts
+///GET api/workouts
+router.get("/api/workouts", (req, res) => {
+    Workout.find()
+      .then(dbWorkouts => {
+        res.json(dbWorkouts);
+      })
+      .catch(err => {
+        res.json(err);
+      });
+  });
+
+///GET api/workouts/range
+
+
+/// POST api/workouts
+
+
+///PUT api/workouts/:id
+
+///DELETE api/workouts
 
 
 
-///api/workouts/:id
-
-
-///api/workouts
-
-
-///api/workouts/range
 
 
 
-///api/workouts
 
 
 //export models
